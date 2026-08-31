@@ -5,16 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@600;700&family=League+Gothic&family=Bebas+Neue&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="./nav.css">
   <style>
-    *{
+    * {
       margin: 0px;
       padding: 0px;
       box-sizing: border-box;
     }
-    body{
+
+    body {
       background-color: #e8e8e4;
     }
+
     .content {
       display: flex;
       flex-direction: column;
@@ -86,10 +91,10 @@
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       overflow: hidden;
       box-sizing: border-box;
-      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                  height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                  border-radius 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
-                  transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        border-radius 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     #cursor span {
@@ -144,6 +149,7 @@
       overflow: hidden;
       padding-top: 60px;
     }
+
     .hero-text {
       position: absolute;
       top: 0;
@@ -157,19 +163,122 @@
       text-align: center;
       z-index: 1;
     }
+
     .hero-text h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: 12rem;
+      font-family: 'Anton', 'League Gothic', 'Bebas Neue', sans-serif;
+      font-size: 12vw;
+      font-weight: 400;
       line-height: 1;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
       margin-bottom: 0px;
-      color: black;
+      color: #111111;
       text-align: center;
       transform: rotateX(90deg);
       transition: transform 2s ease;
       transform-origin: bottom;
     }
+
     .hero-text h1.show {
       transform: rotateX(0deg);
+    }
+
+    /* Manifesto Section Styling */
+    .manifesto-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .manifesto-sub {
+      font-family: 'Oswald', 'Bebas Neue', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 3rem;
+    }
+
+    .manifesto-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 1300px;
+    }
+
+    .manifesto-text h2 {
+      font-family: 'Anton', 'League Gothic', 'Oswald', sans-serif;
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: #111111;
+      text-align: center;
+      margin: 0;
+      white-space: nowrap;
+      transform: rotateX(90deg);
+      transition: transform 1s ease;
+      transform-origin: bottom;
+    }
+
+    .manifesto-text h2.line-1 {
+      font-size: 4.8vw;
+    }
+
+    .manifesto-text h2.line-2 {
+      font-size: 6.2vw;
+    }
+
+    .manifesto-text h2.line-3 {
+      font-size: 4.7vw;
+    }
+
+    .manifesto-text h2.line-4 {
+      font-size: 4.9vw;
+    }
+
+    .manifesto-text h2.line-5 {
+      font-size: 4.9vw;
+    }
+
+    .manifesto-text h2.show {
+      transform: rotateX(0deg);
+    }
+
+    .manifesto-text u.underline-target {
+      text-decoration: underline;
+      text-underline-offset: 8px;
+      text-decoration-thickness: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .manifesto-text h2.line-1 {
+        font-size: 7.2vw;
+      }
+
+      .manifesto-text h2.line-2 {
+        font-size: 9.2vw;
+      }
+
+      .manifesto-text h2.line-3 {
+        font-size: 7.0vw;
+      }
+
+      .manifesto-text h2.line-4 {
+        font-size: 7.3vw;
+      }
+
+      .manifesto-text h2.line-5 {
+        font-size: 7.3vw;
+      }
     }
   </style>
 </head>
@@ -179,10 +288,9 @@
     <span></span>
   </div>
   <div id="videoCursor">
-    <iframe 
-      src="https://player.vimeo.com/video/1127104834?background=1&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1" 
-      frameborder="0"
-      allow="autoplay; fullscreen">
+    <iframe
+      src="https://player.vimeo.com/video/1127104834?background=1&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
+      frameborder="0" allow="autoplay; fullscreen">
     </iframe>
   </div>
 
@@ -203,14 +311,16 @@
     </iframe>
   </section>
 
-  
-  <section class="content">
-    <p>Creative studio building premium Brands</p>
-    <h2 class="animate">It’s never “just a website.”
-      Every detail matters.
-      We craft digital experiences.
-      Your design. Our obsession.
-      Your brand. Our playground.</h2>
+
+  <section class="manifesto-section">
+    <p class="manifesto-sub">CREATIVE STUDIO BUILDING PREMIUM BRANDS</p>
+    <div class="manifesto-text">
+      <h2 class="animate line-1">IT’S NEVER “JUST A WEBSITE.”</h2>
+      <h2 class="animate line-2">EVERY <u class="underline-target">DETAIL</u> MATTERS.</h2>
+      <h2 class="animate line-3">WE CRAFT DIGITAL EXPERIENCES.</h2>
+      <h2 class="animate line-4">YOUR DESIGN. OUR OBSESSION.</h2>
+      <h2 class="animate line-5">YOUR BRAND. OUR <u class="underline-target">PLAYGROUND.</u></h2>
+    </div>
   </section>
 
   <section class="content">
@@ -241,16 +351,16 @@
     </div>
   </section>
 
-
   <section class="content art">
     <h1 class="animate" data-cursor-label="EXPLORE">ART DIRECTION</h1>
     <h1 class="animate" data-cursor-label="EXPLORE">BRANDING</h1>
     <h1 class="animate" data-cursor-label="EXPLORE">WEBFLOW</h1>
   </section>
 
-  <div id="bottom-bar">
-    <p>WE CRAFT BOLD DESIGN & CLEAN WEBFLOW.</p>
-    <div style="display:flex; gap:30px;">
+
+  <!-- Fixed Bottom Bar -->
+  <div class="fixed-bottom-bar">
+    <div class="bottom-bar-content">
       <span>BARCELONA, SPAIN</span>
       <span id="live-clock"></span>
     </div>
@@ -260,7 +370,7 @@
 </script>
 
 <script>
-  let texts = document.querySelectorAll(".hero-text .animate, .content > .animate");
+  let texts = document.querySelectorAll(".animate");
 
 
 
@@ -320,25 +430,25 @@
 
   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-const hero = document.querySelector(".hero");
-const cursor = document.getElementById("cursor");
-const videoCursor = document.getElementById("videoCursor");
+  const hero = document.querySelector(".hero");
+  const cursor = document.getElementById("cursor");
+  const videoCursor = document.getElementById("videoCursor");
 
-let lastClientX = 0;
-let lastClientY = 0;
+  let lastClientX = 0;
+  let lastClientY = 0;
 
-function updateCursorState(clientY) {
-  const heroRect = hero.getBoundingClientRect();
-  if (clientY >= heroRect.top && clientY <= heroRect.bottom) {
-    videoCursor.style.display = "block";
-    cursor.style.display = "none";
-  } else {
-    videoCursor.style.display = "none";
-    cursor.style.display = "block";
+  function updateCursorState(clientY) {
+    const heroRect = hero.getBoundingClientRect();
+    if (clientY >= heroRect.top && clientY <= heroRect.bottom) {
+      videoCursor.style.display = "block";
+      cursor.style.display = "none";
+    } else {
+      videoCursor.style.display = "none";
+      cursor.style.display = "block";
+    }
   }
-}
 
-document.addEventListener("mousemove", (e) => {
+  document.addEventListener("mousemove", (e) => {
     lastClientX = e.clientX;
     lastClientY = e.clientY;
 
@@ -349,35 +459,35 @@ document.addEventListener("mousemove", (e) => {
     videoCursor.style.top = (e.clientY + 30) + "px";
 
     updateCursorState(e.clientY);
-});
+  });
 
-window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", () => {
     updateCursorState(lastClientY);
-});
+  });
 
-document.addEventListener("mouseover", (e) => {
+  document.addEventListener("mouseover", (e) => {
     const target = e.target.closest("[data-cursor-label]");
     if (target) {
-        const label = target.getAttribute("data-cursor-label");
-        const span = cursor.querySelector("span");
-        if (span) {
-            span.innerText = label;
-        }
-        cursor.classList.add("label");
+      const label = target.getAttribute("data-cursor-label");
+      const span = cursor.querySelector("span");
+      if (span) {
+        span.innerText = label;
+      }
+      cursor.classList.add("label");
     }
-});
+  });
 
-document.addEventListener("mouseout", (e) => {
+  document.addEventListener("mouseout", (e) => {
     const target = e.target.closest("[data-cursor-label]");
     const nextTarget = e.relatedTarget ? e.relatedTarget.closest("[data-cursor-label]") : null;
     if (target && target !== nextTarget) {
-        cursor.classList.remove("label");
-        const span = cursor.querySelector("span");
-        if (span) {
-            span.innerText = "";
-        }
+      cursor.classList.remove("label");
+      const span = cursor.querySelector("span");
+      if (span) {
+        span.innerText = "";
+      }
     }
-});
+  });
 
 </script>
 
