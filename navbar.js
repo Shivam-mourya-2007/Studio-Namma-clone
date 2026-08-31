@@ -64,7 +64,9 @@ createListElement("")
 createListElement("WORK")
 createListElement("STUDIO");
 createListElement("SERVICES");
-createListElement("PLANS");
+let liPlans = document.createElement("li");
+liPlans.innerHTML = '<a href="./plan/index.html" style="color:inherit; text-decoration:none;">PLANS</a>';
+menu.append(liPlans);
 createListElement("APPROACH");
 createListElement("NEWS")
 
