@@ -69,28 +69,33 @@
       background: #4f46e5;
       border-radius: 50%;
       pointer-events: none;
-      transform: translate(150%, 150%);
       z-index: 9999;
-      overflow: hidden;
-      transition: width .3s, height .3s, border-radius .3s;
+      transform: translate(150%, 150%);
     }
 
     #videoCursor {
       position: fixed;
-      width: 120px;
-      height: 180px;
+      left: 0;
+      top: 0;
+      width: 320px;
+      height: 480px;
       border: 2px solid black;
-      z-index: 9999;
-      display: none !important;
+      border-radius: 20px;
+      z-index: 10000;
+      display: none;
       pointer-events: none;
-      transform: translate(-50%, -50%);
       overflow: hidden;
-      transition: opacity 0.3s ease;
     }
 
     #videoCursor iframe {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 853px;
+      height: 480px;
+      transform: translate(-50%, -50%);
+      border: none;
+      pointer-events: none;
     }
 
     .hero {
@@ -132,12 +137,14 @@
 <body>
   <div id="cursor">
   </div>
-
   <div id="videoCursor">
-    <iframe src="https://player.vimeo.com/video/1127104834?background=1&autoplay=1&muted=1&loop=1" frameborder="0"
+    <iframe 
+      src="https://player.vimeo.com/video/1127104834?background=1&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1" 
+      frameborder="0"
       allow="autoplay; fullscreen">
     </iframe>
   </div>
+
 
   <section class="hero">
     <div class="hero-text">
@@ -271,43 +278,40 @@
 
   //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-  const cursor = document.getElementById("cursor");
-  let videoCursor = document.getElementById("videoCursor")
+const hero = document.querySelector(".hero");
+const cursor = document.getElementById("cursor");
+const videoCursor = document.getElementById("videoCursor");
 
-  document.addEventListener("mousemove", (e) => {
+let lastClientX = 0;
+let lastClientY = 0;
+
+function updateCursorState(clientY) {
+  const heroRect = hero.getBoundingClientRect();
+  if (clientY >= heroRect.top && clientY <= heroRect.bottom) {
+    videoCursor.style.display = "block";
+    cursor.style.display = "none";
+  } else {
+    videoCursor.style.display = "none";
+    cursor.style.display = "block";
+  }
+}
+
+document.addEventListener("mousemove", (e) => {
+    lastClientX = e.clientX;
+    lastClientY = e.clientY;
+
     cursor.style.left = e.clientX + "px";
     cursor.style.top = e.clientY + "px";
-    videoCursor.style.left = e.clientX + "px";
-    videoCursor.style.top = e.clientY + "px";
-  });
 
-  const sections = document.querySelectorAll(".hero, .content");
+    videoCursor.style.left = (e.clientX + 40) + "px";
+    videoCursor.style.top = (e.clientY + 30) + "px";
 
-  sections.forEach((section, index) => {
-    section.addEventListener("mouseenter", () => {
-      if (index === 0) {
-        videoCursor.style.background = "transparent";
-        videoCursor.style.transform = "translate(-50%, -50%)";
-        // videoCursor.style.display = "block";
-        cursor.style.display = "none"
-      } else {
-        cursor.style.display = "block"
-        cursor.style.width = "20px";
-        cursor.style.height = "20px";
-        cursor.style.background = "#4f46e5";
-        cursor.style.transform = "translate(150%, 150%)";
-        videoCursor.style.display = "none";
-      }
-    });
-  });
+    updateCursorState(e.clientY);
+});
 
-  function updateClock() {
-    const now = new Date();
-    document.getElementById('live-clock').textContent =
-      now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid' });
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
+window.addEventListener("scroll", () => {
+    updateCursorState(lastClientY);
+});
 
 </script>
 

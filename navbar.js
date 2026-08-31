@@ -1,76 +1,78 @@
-let navbar = document.createElement("ul");
-navbar.setAttribute("id", "navbar");
+(() => {
+  let navbar = document.createElement("ul");
+  navbar.setAttribute("id", "navbar");
 
-let menu = document.createElement("ul");
-menu.setAttribute("id", "menu")
+  let menu = document.createElement("ul");
+  menu.setAttribute("id", "menu")
 
-let li1 = document.createElement("li");
-li1.innerText = "STUDIO NAMMA";
+  let li1 = document.createElement("li");
+  li1.innerText = "STUDIO NAMMA";
 
-let li2 = document.createElement("li");
-li2.innerText = "DARK MODE";
+  let li2 = document.createElement("li");
+  li2.innerText = "DARK MODE";
 
 
-let li3 = document.createElement("li");
-li3.innerText = "MENU";
+  let li3 = document.createElement("li");
+  li3.innerText = "MENU";
 
-let li4 = document.createElement("li");
-li4.innerText = "LET'S TALK";
+  let li4 = document.createElement("li");
+  li4.innerText = "LET'S TALK";
 
-function menuEffect(element) {
+  function menuEffect(element) {
 
-  element.addEventListener("mouseenter", () => {
-    if (element.innerText == "MENU") {
-      element.innerText = "OPEN"
+    element.addEventListener("mouseenter", () => {
+      if (element.innerText == "MENU") {
+        element.innerText = "OPEN"
+      }
+      else if(element.innerText == "LET'S TALK"){
+        element.innerText = "CONTACT US"
+      }
+    })
+
+    element.addEventListener("mouseout", () => {
+      if (element.innerText == "OPEN") {
+        element.innerText = "MENU"
+      }
+      else if(element.innerText == "CONTACT US"){
+        element.innerText = "LET'S TALK"
+      }
+    })
+  }
+
+
+  li3.addEventListener("click", ()=>{
+    if(li3.innerText == "OPEN"){
+      menu.classList.add("show");
+      li3.innerText = "CLOSE"
     }
-    else if(element.innerText == "LET'S TALK"){
-      element.innerText = "CONTACT US"
+    else if(li3.innerText == "CLOSE"){
+      menu.classList.remove("show")
+      li3.innerText = "OPEN"
     }
   })
 
-  element.addEventListener("mouseout", () => {
-    if (element.innerText == "OPEN") {
-      element.innerText = "MENU"
-    }
-    else if(element.innerText == "CONTACT US"){
-      element.innerText = "LET'S TALK"
-    }
-  })
-}
+  menuEffect(li3);
+  menuEffect(li4);
 
-
-li3.addEventListener("click", ()=>{
-  if(li3.innerText == "OPEN"){
-    menu.classList.add("show");
-    li3.innerText = "CLOSE"
+  function createListElement(value){
+    let li = document.createElement("li");
+    li.innerText = value;
+    menu.append(li);
   }
-  else if(li3.innerText == "CLOSE"){
-    menu.classList.remove("show")
-    li3.innerText = "OPEN"
-  }
-})
 
-menuEffect(li3);
-menuEffect(li4);
+  createListElement("HOME");
+  createListElement("")
+  createListElement("WORK")
+  createListElement("STUDIO");
+  createListElement("SERVICES");
+  let liPlans = document.createElement("li");
+  liPlans.innerHTML = '<a href="./plan/index.html" style="color:inherit; text-decoration:none;">PLANS</a>';
+  menu.append(liPlans);
+  createListElement("APPROACH");
+  createListElement("NEWS")
 
-function createListElement(value){
-  let li = document.createElement("li");
-  li.innerText = value;
-  menu.append(li);
-}
+  console.log(menu);
 
-createListElement("HOME");
-createListElement("")
-createListElement("WORK")
-createListElement("STUDIO");
-createListElement("SERVICES");
-let liPlans = document.createElement("li");
-liPlans.innerHTML = '<a href="./plan/index.html" style="color:inherit; text-decoration:none;">PLANS</a>';
-menu.append(liPlans);
-createListElement("APPROACH");
-createListElement("NEWS")
-
-console.log(menu);
-
-navbar.append(li1, li2, li3, li4);
-document.body.append(navbar, menu);
+  navbar.append(li1, li2, li3, li4);
+  document.body.append(navbar, menu);
+})();
