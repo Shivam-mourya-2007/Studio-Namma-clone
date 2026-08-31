@@ -71,6 +71,38 @@
       pointer-events: none;
       z-index: 9999;
       transform: translate(150%, 150%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      overflow: hidden;
+      box-sizing: border-box;
+      transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                  height 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                  border-radius 0.3s cubic-bezier(0.25, 1, 0.5, 1), 
+                  transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #cursor span {
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    #cursor.label {
+      width: 120px;
+      height: 34px;
+      border-radius: 6px;
+      transform: translate(-50%, -50%);
+    }
+
+    #cursor.label span {
+      opacity: 1;
     }
 
     #videoCursor {
@@ -136,6 +168,7 @@
 
 <body>
   <div id="cursor">
+    <span></span>
   </div>
   <div id="videoCursor">
     <iframe 
@@ -177,33 +210,33 @@
 
 
   <section class="slideImage">
-    <div>
+    <div data-cursor-label="PORTFOLIO">
       <img class="left"
         src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb0be00336912e360b324f_main%20case%20cover%20matera%20(1)-p-2000.webp"
         alt="">
     </div>
-    <div>
+    <div data-cursor-label="PORTFOLIO">
       <img class="right"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bae5b9f22246585fe911d0_chance-cover-desktop-p-2000.webp"
         alt="">
     </div>
-    <div>
+    <div data-cursor-label="PORTFOLIO">
       <img class="left"
         src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
         alt="">
     </div>
-    <div>
+    <div data-cursor-label="PORTFOLIO">
       <img class="right"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb1c497ad001257f2e727f_intramuros-cover-case-home%20(1)-p-2000.webp"
         alt="">
     </div>
   </section>
 
 
   <section class="content art">
-    <h1 class="animate">ART DIRECTION</h1>
-    <h1 class="animate">BRANDING</h1>
-    <h1 class="animate">WEBFLOW</h1>
+    <h1 class="animate" data-cursor-label="EXPLORE">ART DIRECTION</h1>
+    <h1 class="animate" data-cursor-label="EXPLORE">BRANDING</h1>
+    <h1 class="animate" data-cursor-label="EXPLORE">WEBFLOW</h1>
   </section>
 
   <div id="bottom-bar">
@@ -311,6 +344,30 @@ document.addEventListener("mousemove", (e) => {
 
 window.addEventListener("scroll", () => {
     updateCursorState(lastClientY);
+});
+
+document.addEventListener("mouseover", (e) => {
+    const target = e.target.closest("[data-cursor-label]");
+    if (target) {
+        const label = target.getAttribute("data-cursor-label");
+        const span = cursor.querySelector("span");
+        if (span) {
+            span.innerText = label;
+        }
+        cursor.classList.add("label");
+    }
+});
+
+document.addEventListener("mouseout", (e) => {
+    const target = e.target.closest("[data-cursor-label]");
+    const nextTarget = e.relatedTarget ? e.relatedTarget.closest("[data-cursor-label]") : null;
+    if (target && target !== nextTarget) {
+        cursor.classList.remove("label");
+        const span = cursor.querySelector("span");
+        if (span) {
+            span.innerText = "";
+        }
+    }
 });
 
 </script>
