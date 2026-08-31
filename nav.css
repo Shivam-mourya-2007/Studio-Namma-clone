@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-body{
-  background-color: #e8e8e4;
-}
 #navbar, #menu {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -40,7 +32,7 @@ body{
   grid-template-columns: repeat(2,1fr);
   padding: 20px;
   top: -100%;
-  transition-duration: 5s;
+  transition-duration: 0.3s;
   z-index: 1;
 }
 #menu>li{
