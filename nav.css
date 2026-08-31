@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 *{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body{
-  background-color: rgb(234, 236, 237);
+  background-color: #e8e8e4;
+}
+#navbar, #menu {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 #navbar{
   display:flex;
@@ -14,7 +18,8 @@ body{
   /* background-color: rgba(223, 41, 41); */
   height: 60px;
   align-items: center;
-  font-size: 25px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
   position: fixed;
   z-index: 2;
   padding: 0px 20px;
@@ -44,4 +49,17 @@ body{
 }
 #menu.show{
   top: 9%;
+}
+#bottom-bar {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 10;
 }

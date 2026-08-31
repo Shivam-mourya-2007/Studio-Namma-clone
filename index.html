@@ -10,22 +10,17 @@
     .content {
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      width: 99vw;
       align-items: center;
       justify-content: center;
-    }
-
-    .content>h1 {
-      font-size: 70px;
-
+      height: 100vh;
+      border: 3px solid black;
+      font-size: 250%;
     }
 
     .animate {
       transform: rotateX(90deg);
-      transition-duration: 3s;
+      transition-duration: 1s;
       transform-origin: bottom;
-      font-size: 60px;
       text-align: center;
     }
 
@@ -33,59 +28,144 @@
       transform: rotateX(0deg);
     }
 
-    iframe {
-      height: 100%;
+    .content>iframe {
       width: 100%;
+      height: 100%;
+      pointer-events: none;
     }
 
     .slideImage {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 15px;
       overflow: hidden;
     }
 
-    @media (max-width: 500px) {
-      .slideImage {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 20px;
-        overflow: hidden;
-      }
-    }
-
     .slideImage>div>img {
-      height: 500px;
       width: 100%;
     }
 
-    .slideImage>div {
-      margin: 20px;
-
+    .left {
+      transform: translateX(-50%) translateY(40%) rotateZ(-20deg);
+      transition-duration: 0.5s;
     }
 
-    .slideImage>div>.left {
-      transform: translateX(-100%) translateY(50%) rotate(-30deg);
-      transition-duration: 3s;
+    .right {
+      transform: translateX(50%) translateY(40%) rotateZ(20deg);
+      transition-duration: 0.5s;
     }
 
-    .slideImage>div>.right {
-      transform: translateX(100%) translateY(20%) rotate(30deg);
-      transition-duration: 3s;
+    .slideImage>.show>img {
+      transform: translateX(0);
     }
 
-    .content > .text{
-      transition-duration: 0s;
-      cursor: pointer;
+
+    #cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: #4f46e5;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(150%, 150%);
+      z-index: 9999;
+      overflow: hidden;
+      transition: width .3s, height .3s, border-radius .3s;
+    }
+
+    #videoCursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translate(0%, 0%);
+      border: 2px solid black;
+      z-index: 9999;
+      width: 100px;
+      height: 180px;
+      display: none;
+      transition: width .3s, height .3s, border-radius .3s;
+    }
+
+    #videoCursor iframe {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero-image-grid {
+      position: absolute;
+      left: 2%;
+      top: 50%;
+      transform: translateY(-45%);
+      width: 270px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5px;
+      z-index: 2;
+    }
+    .hero-image-grid img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+    .hero-text {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 2%;
+    }
+    .hero-text h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: 15vw;
+      line-height: 0.88;
+      text-transform: uppercase;
+      color: black;
+      transform: rotateX(90deg);
+      transition: transform 1s ease;
+      transform-origin: bottom;
+    }
+    .hero-text h1.show {
+      transform: rotateX(0deg);
     }
   </style>
 </head>
 
 <body>
-  <section class="content">
-    <h1 class="animate">WE THINK</h1>
-    <h1 class="animate">CRAFT AND</h1>
-    <h1 class="animate">DESIGN</h1>
+  <div id="cursor">
+  </div>
+
+  <div id="videoCursor">
+    <iframe src="https://player.vimeo.com/video/1127104834?background=1&autoplay=1&muted=1&loop=1" frameborder="0"
+      allow="autoplay; fullscreen">
+    </iframe>
+  </div>
+
+  <section class="hero">
+    <div class="hero-image-grid">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
+    </div>
+    <div class="hero-text">
+      <h1 class="animate">WE THINK</h1>
+      <h1 class="animate">CRAFT AND</h1>
+      <h1 class="animate">DESIGN</h1>
+    </div>
   </section>
 
   <section class="content">
@@ -98,53 +178,61 @@
 
   <section class="content">
     <p>Creative studio building premium Brands</p>
-    <h2 class="animate">
-      It’s never “just a website.”
+    <h2 class="animate">It’s never “just a website.”
       Every detail matters.
       We craft digital experiences.
       Your design. Our obsession.
-      Your brand. Our playground.
-    </h2>
+      Your brand. Our playground.</h2>
   </section>
 
   <section class="content">
-    <h2 class="animate">PLAYGROUND</h2>
+    <h1 class="animate">PLAYGROUND</h1>
   </section>
+
 
   <section class="slideImage">
     <div>
       <img class="left"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb0be00336912e360b324f_main%20case%20cover%20matera%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
         alt="">
     </div>
     <div>
       <img class="right"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb0be00336912e360b324f_main%20case%20cover%20matera%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
         alt="">
     </div>
     <div>
       <img class="left"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb0be00336912e360b324f_main%20case%20cover%20matera%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
         alt="">
     </div>
     <div>
       <img class="right"
-        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68bb0be00336912e360b324f_main%20case%20cover%20matera%20(1).webp"
+        src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp"
         alt="">
     </div>
   </section>
 
 
-  <div class="content art">
-    <h1 class="animate text">ART DIRECTION</h1>
-    <h1 class="animate text">BRANDING</h1>
-    <h1 class="animate text">WEB FLOW</h1>
+  <section class="content art">
+    <h1 class="animate">ART DIRECTION</h1>
+    <h1 class="animate">BRANDING</h1>
+    <h1 class="animate">WEBFLOW</h1>
+  </section>
+
+  <div id="bottom-bar">
+    <p>WE CRAFT BOLD DESIGN & CLEAN WEBFLOW.</p>
+    <div style="display:flex; gap:30px;">
+      <span>BARCELONA, SPAIN</span>
+      <span id="live-clock"></span>
+    </div>
   </div>
 </body>
-<script src="navbar.js"></script>
+<script src="./navbar.js">
+</script>
+
 <script>
-  let texts = document.querySelectorAll(".content > .animate");
-  let images = document.querySelectorAll(".slideImage > div > img")
+  let texts = document.querySelectorAll(".hero-text .animate, .content > .animate");
 
 
 
@@ -167,35 +255,81 @@
   let observer2 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting == true) {
-        entry.target.style.transform = "translateX(0%)"
+        entry.target.classList.add("show")
+
       }
+      // else{
+      //   entry.target.classList.remove("show")
+      // }
     })
   })
+
+  let images = document.querySelectorAll(".slideImage > div");
 
   images.forEach((img) => {
     observer2.observe(img)
   })
 
 
+  let list = document.querySelectorAll(".art > h1");
 
-  let service = document.querySelectorAll(".art > .animate");
-
-  service.forEach((element)=>{
-    console.log(element)
-    element.addEventListener("mouseenter", (event)=>{
-      console.log(event.target.innerText)
-
-      service.forEach((text)=>{
-        if(text.innerText != event.target.innerText){
-          text.style.color = "gray"
-        }
-        else{
+  list.forEach((element) => {
+    element.addEventListener("mouseenter", (event) => {
+      console.log(event.target)
+      list.forEach((text) => {
+        if (text.innerText == event.target.innerText) {
           text.style.color = "black"
         }
+        else {
+          text.style.color = "gray"
+        }
       })
-
     })
   })
+
+
+
+
+  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+  const cursor = document.getElementById("cursor");
+  let videoCursor = document.getElementById("videoCursor")
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+    videoCursor.style.left = e.clientX + "px";
+    videoCursor.style.top = e.clientY + "px";
+  });
+
+  const sections = document.querySelectorAll(".hero, .content");
+
+  sections.forEach((section, index) => {
+    section.addEventListener("mouseenter", () => {
+      if (index === 0) {
+        videoCursor.style.background = "transparent";
+        videoCursor.style.transform = "translate(20%, 20%)";
+        videoCursor.style.display = "block";
+        cursor.style.display = "none"
+      } else {
+        cursor.style.display = "block"
+        cursor.style.width = "20px";
+        cursor.style.height = "20px";
+        cursor.style.background = "#4f46e5";
+        cursor.style.transform = "translate(150%, 150%)";
+        videoCursor.style.display = "none";
+      }
+    });
+  });
+
+  function updateClock() {
+    const now = new Date();
+    document.getElementById('live-clock').textContent =
+      now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Madrid' });
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
 </script>
 
 </html>
