@@ -77,15 +77,15 @@
 
     #videoCursor {
       position: fixed;
-      left: 0;
-      top: 0;
-      transform: translate(0%, 0%);
+      width: 120px;
+      height: 180px;
       border: 2px solid black;
       z-index: 9999;
-      width: 100px;
-      height: 180px;
-      display: none;
-      transition: width .3s, height .3s, border-radius .3s;
+      display: none !important;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+      transition: opacity 0.3s ease;
     }
 
     #videoCursor iframe {
@@ -97,43 +97,30 @@
       position: relative;
       height: 100vh;
       overflow: hidden;
-    }
-    .hero-image-grid {
-      position: absolute;
-      left: 2%;
-      top: 50%;
-      transform: translateY(-45%);
-      width: 270px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5px;
-      z-index: 2;
-    }
-    .hero-image-grid img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 1/1;
-      object-fit: cover;
+      padding-top: 60px;
     }
     .hero-text {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 100%;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 2%;
+      align-items: center;
+      text-align: center;
+      z-index: 1;
     }
     .hero-text h1 {
       font-family: 'Anton', sans-serif;
-      font-size: 15vw;
-      line-height: 0.88;
-      text-transform: uppercase;
+      font-size: 12rem;
+      line-height: 1;
+      margin-bottom: 0px;
       color: black;
+      text-align: center;
       transform: rotateX(90deg);
-      transition: transform 1s ease;
+      transition: transform 2s ease;
       transform-origin: bottom;
     }
     .hero-text h1.show {
@@ -153,14 +140,6 @@
   </div>
 
   <section class="hero">
-    <div class="hero-image-grid">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-      <img src="https://cdn.prod.website-files.com/67aca0c732855fc2a1f2c4fc/68beb68ead192a24f9ad4372_silvr%20case%20cover%20(1).webp" alt="">
-    </div>
     <div class="hero-text">
       <h1 class="animate">WE THINK</h1>
       <h1 class="animate">CRAFT AND</h1>
@@ -308,8 +287,8 @@
     section.addEventListener("mouseenter", () => {
       if (index === 0) {
         videoCursor.style.background = "transparent";
-        videoCursor.style.transform = "translate(20%, 20%)";
-        videoCursor.style.display = "block";
+        videoCursor.style.transform = "translate(-50%, -50%)";
+        // videoCursor.style.display = "block";
         cursor.style.display = "none"
       } else {
         cursor.style.display = "block"
