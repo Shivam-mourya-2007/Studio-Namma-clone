@@ -168,10 +168,26 @@ allVideos.forEach(v => videoObserver.observe(v));
 
 
 /* =========================================
-   SCROLL REVEAL OBSERVER
+   SCROLL REVEAL OBSERVER (SLIDE IMAGES)
 ========================================= */
 
-const revealElements = document.querySelectorAll(".slideImage > div, .archive-row, .section_cta");
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+const images = document.querySelectorAll(".slideImage > div");
+
+images.forEach((img) => {
+    observer2.observe(img);
+});
+
+const otherRevealElements = document.querySelectorAll(".archive-row, .section_cta");
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -181,7 +197,7 @@ const revealObserver = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
 
-revealElements.forEach(el => revealObserver.observe(el));
+otherRevealElements.forEach(el => revealObserver.observe(el));
 
 /* =========================================
    THEME TOGGLE
@@ -228,8 +244,11 @@ if (cursor) {
     
     requestAnimationFrame(renderCursor);
 
+    document.addEventListener("mousedown", () => cursor.classList.add("cursor--click"));
+    document.addEventListener("mouseup", () => cursor.classList.remove("cursor--click"));
+
     // Interactive expansion on hoverable elements
-    const hoverables = document.querySelectorAll("a, button, .project, .archive-card, .cta_thumb_video, .slide-card");
+    const hoverables = document.querySelectorAll("a, button, .project, .archive-card, .cta_thumb_video, .slide-card, .open-project");
     hoverables.forEach(el => {
         el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
         el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
@@ -312,6 +331,67 @@ if (nammaLogo && footerSection) {
     window.addEventListener("resize", calculateTarget, { passive: true });
     calculateTarget();
 }
+
+/* =========================================
+   ARCHIVE ROWS HORIZONTAL SCROLL PARALLAX
+========================================= */
+
+const archiveRows = document.querySelectorAll(".archive-row");
+
+if (archiveRows.length > 0) {
+    let currentXOffsets = new Array(archiveRows.length).fill(0);
+    let targetXOffsets = new Array(archiveRows.length).fill(0);
+    let isArchiveTicking = false;
+
+    function updateArchiveParallaxTargets() {
+        const windowHeight = window.innerHeight;
+
+        archiveRows.forEach((row, index) => {
+            const rect = row.getBoundingClientRect();
+            if (rect.top < windowHeight + 100 && rect.bottom > -100) {
+                // Normalized progress: -1 when entering viewport, 0 at center, +1 exiting
+                const rowCenter = rect.top + rect.height / 2;
+                const progress = (windowHeight / 2 - rowCenter) / (windowHeight / 2);
+
+                // Alternating directions: odd rows drift right, even (reverse) rows drift left
+                const isReverse = row.classList.contains("reverse");
+                const direction = isReverse ? -1 : 1;
+
+                // Smooth horizontal drift amount
+                targetXOffsets[index] = progress * 90 * direction;
+            }
+        });
+
+        if (!isArchiveTicking) {
+            requestAnimationFrame(renderArchiveParallax);
+            isArchiveTicking = true;
+        }
+    }
+
+    function renderArchiveParallax() {
+        let hasActiveDiff = false;
+
+        archiveRows.forEach((row, index) => {
+            currentXOffsets[index] += (targetXOffsets[index] - currentXOffsets[index]) * 0.12;
+            row.style.transform = `translate3d(${currentXOffsets[index].toFixed(2)}px, 0, 0)`;
+
+            if (Math.abs(targetXOffsets[index] - currentXOffsets[index]) > 0.05) {
+                hasActiveDiff = true;
+            }
+        });
+
+        if (hasActiveDiff) {
+            requestAnimationFrame(renderArchiveParallax);
+        } else {
+            isArchiveTicking = false;
+        }
+    }
+
+    window.addEventListener("scroll", updateArchiveParallaxTargets, { passive: true });
+    window.addEventListener("resize", updateArchiveParallaxTargets, { passive: true });
+    updateArchiveParallaxTargets();
+}
+
 
 
 
