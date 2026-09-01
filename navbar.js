@@ -1,6 +1,6 @@
 (() => {
   // Determine path prefix dynamically based on the current page's subfolder level
-  const isSubfolder = window.location.pathname.includes('/work/') || window.location.pathname.includes('/plan/') || window.location.pathname.includes('/news/');
+  const isSubfolder = window.location.pathname.includes('/work/') || window.location.pathname.includes('/plans-Studio-Nama/') || window.location.pathname.includes('/news/');
   const prefix = isSubfolder ? '../' : './';
 
   let menu = document.createElement("ul");
@@ -21,7 +21,7 @@
   createListElement("WORK", prefix + "work/work.html");
   createListElement("STUDIO");
   createListElement("SERVICES");
-  createListElement("PLANS", prefix + "#");
+  createListElement("PLANS", prefix + "plans-Studio-Nama/index.html");
   createListElement("APPROACH");
   createListElement("NEWS", prefix + "news/index.html");
 
@@ -53,6 +53,10 @@
 
     let li2 = document.createElement("li");
     li2.innerText = "DARK MODE";
+    li2.style.cursor = "pointer";
+    li2.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
 
     let li3 = document.createElement("li");
     li3.innerText = "MENU";

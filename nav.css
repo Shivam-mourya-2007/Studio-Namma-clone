@@ -9,6 +9,8 @@
   justify-content: space-between;
   cursor: pointer;
   /* background-color: rgba(223, 41, 41); */
+  background-color: rgba(240, 240, 235, 0.95);
+  backdrop-filter: blur(4px);
   height: 60px;
   align-items: center;
   font-size: 13px;
@@ -55,4 +57,13 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   z-index: 10;
+}
+
+body.dark-mode #navbar,
+body.dark-mode #menu {
+  background-color: #111;
+  color: #fff;
+}
+body.dark-mode #menu > li a {
+  color: #fff;
 }

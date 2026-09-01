@@ -31,40 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const nammaLogo = document.querySelector('.footer-logo');
-    const footer = document.querySelector('.footer');
-    if (nammaLogo && footer) {
-        let currentScaleY = 0.3;
-        let targetScaleY = 0.3;
 
-        window.addEventListener('scroll', () => {
-            const rect = footer.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            
-          
-            if (rect.top < viewportHeight) {
-                // Progress is how much of the footer is visible
-                let progress = (viewportHeight - rect.top) / rect.height;
-                progress = Math.min(Math.max(progress, 0), 1);
-                
-                // Set target scale from 0.3 up to 1.8
-                targetScaleY = 0.3 + (progress * 1.5);
-            } else {
-                targetScaleY = 0.3;
-            }
-        });
-        function animateLogo() {
-      
-            currentScaleY += (targetScaleY - currentScaleY) * 0.1;
-            
-            
-            nammaLogo.style.transform = `scaleY(${currentScaleY})`;
-            
-            requestAnimationFrame(animateLogo);
-        }
-        
-       
-        window.dispatchEvent(new Event('scroll'));
-        animateLogo();
-    }
 });
