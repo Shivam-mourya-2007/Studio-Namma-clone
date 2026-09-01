@@ -21,9 +21,9 @@
   createListElement("WORK", prefix + "work/work.html");
   createListElement("STUDIO");
   createListElement("SERVICES");
-  createListElement("PLANS", prefix + "plan/index.html");
+  createListElement("PLANS", prefix + "#");
   createListElement("APPROACH");
-  createListElement("NEWS", prefix + "plan/index.html");
+  createListElement("NEWS", prefix + "news/index.html");
 
   document.body.append(menu);
 
