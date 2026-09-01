@@ -1,9 +1,4 @@
-/* ============================================================
-   STUDIO NAMMA — Plans Page Stylesheet
-   Minimalist, industrial-editorial, typography-heavy design
-   ============================================================ */
 
-/* ---- CSS CUSTOM PROPERTIES (LIGHT MODE DEFAULT) ---- */
 :root {
     --bg-primary: #ffffff;
     --bg-secondary: #f5f5f5;
@@ -22,10 +17,6 @@
     --side-padding: clamp(20px, 3vw, 40px);
     --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-
-/* ---- GLOBAL RESET & BASE ---- */
 *,
 *::before,
 *::after {
@@ -125,7 +116,6 @@ img {
     opacity: 0.6;
 }
 
-/* ===== HERO SECTION ===== */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -155,7 +145,6 @@ img {
     }
 }
 
-/* ===== INTRO SECTION ===== */
 .intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -181,7 +170,6 @@ img {
     max-width: 620px;
 }
 
-/* ===== TYPOGRAPHY DIVIDER ===== */
 .typo-divider {
     padding: 40px 0 80px;
     overflow: hidden;
@@ -207,7 +195,6 @@ img {
     transform: translateX(0);
 }
 
-/* ===== PLANS SECTION ===== */
 .plans-section {
     padding: 60px var(--side-padding) 80px;
 }
@@ -216,7 +203,7 @@ img {
     margin-bottom: 100px;
 }
 
-/* ---- Plan Card Layout ---- */
+
 .plan-card {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -345,7 +332,7 @@ img {
     opacity: 0.7;
 }
 
-/* ===== WE BUILD YOU LAUNCH ===== */
+
 .we-build {
     padding: 60px var(--side-padding) 40px;
 }
@@ -382,7 +369,6 @@ img {
     background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
 }
 
-/* ===== VALUE PROPOSITIONS ===== */
 .value-props {
     padding: 60px var(--side-padding) 120px;
 }
@@ -424,7 +410,7 @@ img {
     max-width: 520px;
 }
 
-/* ===== LET'S WORK TOGETHER ===== */
+
 .work-together {
     padding: 80px var(--side-padding) 60px;
 }
@@ -475,7 +461,7 @@ img {
     opacity: 0.7;
 }
 
-/* ---- Portfolio Grid ---- */
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -506,7 +492,6 @@ img {
     letter-spacing: 0.08em;
 }
 
-/* ===== FOOTER ===== */
 .footer {
     padding: 80px var(--side-padding) 60px;
 }
@@ -596,7 +581,7 @@ img {
     margin-top: 16px;
 }
 
-/* ===== BOTTOM FIXED BAR ===== */
+
 .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -641,7 +626,7 @@ img {
 }
 
 
-/* ===== NAMMA BRAND BANNER ===== */
+
 .namma-banner {
     background: #ffffff;
     padding: 0;
@@ -666,11 +651,9 @@ img {
     user-select: none;
 }
 
-/* ============================================================
-   RESPONSIVE DESIGN
-   ============================================================ */
 
-/* ---- Tablet ---- */
+
+
 @media (max-width: 1024px) {
     .plan-card {
         grid-template-columns: 1fr;
@@ -710,7 +693,6 @@ img {
     }
 }
 
-/* ---- Mobile ---- */
 @media (max-width: 600px) {
     :root {
         --side-padding: 16px;
