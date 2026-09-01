@@ -200,22 +200,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 otherRevealElements.forEach(el => revealObserver.observe(el));
 
 /* =========================================
-   THEME TOGGLE
-========================================= */
-
-const themeToggle = document.getElementById("theme-toggle");
-
-if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-        const currentTheme = document.body.getAttribute("data-theme") || "light";
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
-        
-        document.body.setAttribute("data-theme", newTheme);
-        themeToggle.textContent = newTheme === "dark" ? "LIGHT MODE" : "DARK MODE";
-    });
-}
-
-/* =========================================
    CUSTOM BLUE CURSOR (LERP & INTERACTION)
 ========================================= */
 

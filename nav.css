@@ -156,6 +156,14 @@
     left: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-sizing: border-box;
+    color: var(--text-color, #000000);
+    transition: color 0.3s ease;
+}
+
+[data-theme="dark"] #navbar,
+[data-theme="dark"] #navbar > li,
+[data-theme="dark"] #navbar > p {
+    color: #ffffff;
 }
 
 #navbar > p, #navbar > li {

@@ -17,6 +17,16 @@
     --side-padding: clamp(20px, 3vw, 40px);
     --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+[data-theme="dark"] {
+    --bg-primary: #0c0c0c;
+    --bg-secondary: #141414;
+    --text-primary: #f0f0f0;
+    --text-secondary: #bbbbbb;
+    --text-muted: #888888;
+    --divider: rgba(255, 255, 255, 0.12);
+    --card-bg: rgba(40, 40, 40, 0.4);
+}
 *,
 *::before,
 *::after {
@@ -502,9 +512,101 @@ img {
         grid-template-columns: repeat(2, 1fr);
     }
 
-
-
     .nav-link {
         display: none;
     }
+}
+
+/* ===== FOOTER & BOTTOM BAR ===== */
+.footer {
+    padding: 80px var(--side-padding) 60px;
+    border-top: 1px solid var(--divider);
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-nav, .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.footer-nav a, .footer-social a {
+    color: var(--text-primary);
+    opacity: 0.75;
+    transition: opacity var(--transition-base);
+}
+
+.footer-nav a:hover, .footer-social a:hover {
+    opacity: 1;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.footer-talk, .footer-email {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.namma-banner {
+    padding: 40px var(--side-padding);
+    overflow: hidden;
+}
+
+.namma-text {
+    font-family: var(--font-display);
+    font-size: clamp(80px, 22vw, 360px);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-align: center;
+    width: 100%;
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--bottom-bar-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--side-padding);
+    background: var(--bg-primary);
+    border-top: 1px solid var(--divider);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    z-index: 100;
+    transition: background-color var(--transition-base), color var(--transition-base), border-color var(--transition-base);
 }
