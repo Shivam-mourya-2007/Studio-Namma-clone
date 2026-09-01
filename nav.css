@@ -7,13 +7,14 @@
   display:flex;
   width: 100vw;
   justify-content: space-between;
+  cursor: pointer;
   /* background-color: rgba(223, 41, 41); */
   height: 60px;
   align-items: center;
   font-size: 13px;
   letter-spacing: 0.1em;
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   padding: 0px 20px;
   list-style-type: none;
   top: 0px;
@@ -33,7 +34,7 @@
   padding: 20px;
   top: -100%;
   transition-duration: 0.3s;
-  z-index: 1;
+  z-index: 99;
 }
 #menu>li{
   font-size: 100px;

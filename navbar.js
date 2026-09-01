@@ -1,6 +1,6 @@
 (() => {
   // Determine path prefix dynamically based on the current page's subfolder level
-  const isSubfolder = window.location.pathname.includes('/work/') || window.location.pathname.includes('/plan/');
+  const isSubfolder = window.location.pathname.includes('/work/') || window.location.pathname.includes('/plan/') || window.location.pathname.includes('/news/');
   const prefix = isSubfolder ? '../' : './';
 
   let menu = document.createElement("ul");
