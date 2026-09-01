@@ -1,6 +1,9 @@
 (() => {
   // Determine path prefix dynamically based on the current page's subfolder level
-  const isSubfolder = window.location.pathname.includes('/work/') || window.location.pathname.includes('/plan/') || window.location.pathname.includes('/news/');
+  const isSubfolder = window.location.pathname.includes('/work/') || 
+                      window.location.pathname.includes('/plan/') || 
+                      window.location.pathname.includes('/news/') || 
+                      window.location.pathname.includes('/plans-Studio-Nama/');
   const prefix = isSubfolder ? '../' : './';
 
   let menu = document.createElement("ul");
@@ -19,32 +22,50 @@
   createListElement("HOME", prefix + "index.html");
   createListElement("");
   createListElement("WORK", prefix + "work/work.html");
-  createListElement("STUDIO");
-  createListElement("SERVICES");
-  createListElement("PLANS", prefix + "#");
-  createListElement("APPROACH");
+  createListElement("STUDIO", prefix + "index.html");
+  createListElement("SERVICES", prefix + "index.html");
+  createListElement("PLANS", prefix + "plans-Studio-Nama/index.html");
+  createListElement("APPROACH", prefix + "index.html");
   createListElement("NEWS", prefix + "news/index.html");
 
   document.body.append(menu);
 
-  // Bind to static menu toggle if it exists on the page
+  // Global Theme toggle synchronization
+  function toggleTheme() {
+    const currentTheme = document.body.getAttribute("data-theme") || "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    document.body.setAttribute("data-theme", newTheme);
+    
+    document.querySelectorAll("#theme-toggle").forEach(btn => {
+      btn.textContent = newTheme === "dark" ? "LIGHT MODE" : "DARK MODE";
+    });
+  }
+
+  document.querySelectorAll("#theme-toggle").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      toggleTheme();
+    });
+  });
+
+  // Bind to static navbar if present on page
   const staticNavbar = document.querySelector(".navbar");
   if (staticNavbar) {
-    // We are on a page with a static navbar (Work or Plan page)
     const menuBtn = document.getElementById("menu-toggle") || [...document.querySelectorAll("button, a")].find(el => el.textContent.trim().toLowerCase() === "menu");
     if (menuBtn) {
-      menuBtn.addEventListener("click", () => {
+      menuBtn.addEventListener("click", (e) => {
+        e.preventDefault();
         if (menu.classList.contains("show")) {
           menu.classList.remove("show");
-          menuBtn.textContent = "MENU";
+          menuBtn.innerHTML = "MENU";
         } else {
           menu.classList.add("show");
-          menuBtn.textContent = "CLOSE";
+          menuBtn.innerHTML = "CLOSE";
         }
       });
     }
   } else {
-    // Home page dynamic navbar behavior
+    // Home page dynamic navbar behavior (unchanged for homepage)
     let navbar = document.createElement("ul");
     navbar.setAttribute("id", "navbar");
 
@@ -53,6 +74,11 @@
 
     let li2 = document.createElement("li");
     li2.innerText = "DARK MODE";
+    li2.addEventListener("click", () => {
+      toggleTheme();
+      const currentTheme = document.body.getAttribute("data-theme") || "light";
+      li2.innerText = currentTheme === "dark" ? "LIGHT MODE" : "DARK MODE";
+    });
 
     let li3 = document.createElement("li");
     li3.innerText = "MENU";
@@ -62,19 +88,21 @@
 
     function menuEffect(element) {
       element.addEventListener("mouseenter", () => {
-        if (element.innerText == "MENU") {
+        if (menu.classList.contains("show")) return;
+        if (element.innerText === "MENU") {
           element.innerText = "OPEN";
         }
-        else if (element.innerText == "LET'S TALK") {
+        else if (element.innerText === "LET'S TALK") {
           element.innerText = "CONTACT US";
         }
       });
 
       element.addEventListener("mouseout", () => {
-        if (element.innerText == "OPEN") {
+        if (menu.classList.contains("show")) return;
+        if (element.innerText === "OPEN") {
           element.innerText = "MENU";
         }
-        else if (element.innerText == "CONTACT US") {
+        else if (element.innerText === "CONTACT US") {
           element.innerText = "LET'S TALK";
         }
       });
@@ -83,7 +111,7 @@
     li3.addEventListener("click", () => {
       if (menu.classList.contains("show")) {
         menu.classList.remove("show");
-        li3.innerText = "OPEN";
+        li3.innerText = "MENU";
       } else {
         menu.classList.add("show");
         li3.innerText = "CLOSE";

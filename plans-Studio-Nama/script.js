@@ -6,15 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const topNav = document.getElementById('topNav');
     let lastScroll = 0;
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        if (currentScroll > 80) {
-            topNav.classList.add('scrolled');
-        } else {
-            topNav.classList.remove('scrolled');
-        }
-        lastScroll = currentScroll;
-    }, { passive: true });
+    if (topNav) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 80) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+    }
 
 
     const observerOptions = {

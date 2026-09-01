@@ -46,8 +46,12 @@ body {
     grid-template-columns: 1.35fr 3.5fr 1.75fr auto;
     align-items: center;
     padding: 24px 32px;
-    background: var(--bg-color);
+    background: #ffffff;
     transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .navbar {
+    background: #0c0c0c;
 }
 
 .nav-col {
