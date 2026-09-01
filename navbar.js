@@ -73,11 +73,10 @@
     li1.innerText = "STUDIO NAMMA";
 
     let li2 = document.createElement("li");
+    li2.setAttribute("id", "theme-toggle");
     li2.innerText = "DARK MODE";
     li2.addEventListener("click", () => {
       toggleTheme();
-      const currentTheme = document.body.getAttribute("data-theme") || "light";
-      li2.innerText = currentTheme === "dark" ? "LIGHT MODE" : "DARK MODE";
     });
 
     let li3 = document.createElement("li");

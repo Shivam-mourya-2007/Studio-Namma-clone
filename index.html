@@ -11,6 +11,20 @@
   <link rel="stylesheet" href="./nav.css">
   <link rel="stylesheet" href="./footer.css">
   <style>
+    :root {
+      --bg-color: #e8e8e4;
+      --text-color: #111111;
+      --border-color: #000000;
+      --sub-color: #111111;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0c0c0c;
+      --text-color: #f0f0f0;
+      --border-color: rgba(255, 255, 255, 0.15);
+      --sub-color: #a0a0a0;
+    }
+
     * {
       margin: 0px;
       padding: 0px;
@@ -18,7 +32,9 @@
     }
 
     body {
-      background-color: #e8e8e4;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .content {
@@ -27,8 +43,10 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
-      border: 3px solid black;
+      border: 3px solid var(--border-color);
+      color: var(--text-color);
       font-size: 250%;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
     .animate {
@@ -173,10 +191,10 @@
       letter-spacing: -0.01em;
       text-transform: uppercase;
       margin-bottom: 0px;
-      color: #111111;
+      color: var(--text-color);
       text-align: center;
       transform: rotateX(90deg);
-      transition: transform 2s ease;
+      transition: transform 2s ease, color 0.3s ease;
       transform-origin: bottom;
     }
 
@@ -202,8 +220,9 @@
       font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: #111111;
+      color: var(--sub-color);
       margin-bottom: 3rem;
+      transition: color 0.3s ease;
     }
 
     .manifesto-text {
@@ -221,12 +240,12 @@
       line-height: 1.2;
       letter-spacing: -0.01em;
       text-transform: uppercase;
-      color: #111111;
+      color: var(--text-color);
       text-align: center;
       margin: 0;
       white-space: nowrap;
       transform: rotateX(90deg);
-      transition: transform 1s ease;
+      transition: transform 1s ease, color 0.3s ease;
       transform-origin: bottom;
     }
 
@@ -284,7 +303,7 @@
   </style>
 </head>
 
-<body>
+<body data-theme="light">
   <div id="cursor">
     <span></span>
   </div>
