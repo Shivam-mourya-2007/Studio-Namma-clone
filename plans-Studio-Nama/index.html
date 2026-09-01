@@ -5,23 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Studio Namma Plans — Sharp, flexible, and effective web design and Webflow development packages. From all-in-one projects to daily passes and premium subscriptions.">
     <title>Plans — Studio Namma</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../nav.css">
-    <link rel="stylesheet" href="../footer.css">
-     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="light">
 
-   
-    <nav class="top-nav" id="topNav">
-        <div class="nav-left">
-            <a href="#" class="nav-logo">STUDIO NAMMA</a>
-
+    <nav class="navbar">
+        <div class="nav-col nav-col-brand">
+            <a href="../index.html" class="nav-item nav-brand hover-link">
+                STUDIO NAMMA
+            </a>
         </div>
-        <div class="nav-right">
-            <a href="#" class="nav-link">MENU</a>
-            <a href="#" class="nav-cta">LET'S TALK!</a>
+
+        <div class="nav-col nav-col-theme">
+            <button id="theme-toggle" class="nav-item nav-theme hover-link" aria-label="Toggle dark mode">
+                DARK MODE
+            </button>
+        </div>
+
+        <div class="nav-col nav-col-menu">
+            <button id="menu-toggle" class="nav-item nav-menu hover-link" aria-label="Open menu">
+                MENU
+            </button>
+        </div>
+
+        <div class="nav-col nav-col-talk">
+            <a href="mailto:hello@studionamma.com" class="nav-item nav-talk hover-link">
+                LET'S TALK!
+            </a>
         </div>
     </nav>
 
@@ -188,7 +200,21 @@
     </section>
 
 
-    <section class="portfolio-section" style="padding: 0 clamp(20px, 3vw, 40px) 80px;">
+    <section class="work-together" id="workTogether">
+        <div class="work-together-heading">
+            <h2 class="work-together-title">
+                <span class="work-together-line">LET'S WORK</span>
+                <span class="work-together-line">TOGETHER</span>
+            </h2>
+        </div>
+        <div class="work-together-cta-area">
+            <div class="work-together-text">
+                <p>Work with us if average isn't your thing.<br>Drop it, we'll build it!</p>
+            </div>
+            <a href="#" class="work-together-cta">SAY HELLO →</a>
+        </div>
+
+       
         <div class="portfolio-grid" id="portfolioGrid">
             <div class="portfolio-card" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
                 <span class="portfolio-label">paco</span>
@@ -212,199 +238,52 @@
     </section>
 
  
-    <!-- =========================
-         LET'S WORK TOGETHER
-    ========================== -->
-
-    <section class="section_cta">
-
-        <div class="cta_container">
-
-            <div class="cta_heading_wrapper">
-                <h2 class="cta_heading">LET'S WORK</h2>
-                <div class="cta_heading_line_2">
-                    <div class="cta_visual">
-                        <video autoplay loop muted playsinline>
-                            <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa249c8ad1d2624abf3d5_Footer-Service-designV2-transcode.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <h2 class="cta_heading">TOGETHER</h2>
-                </div>
-            </div>
-
-            <div class="cta_content">
-                <p>
-                    Work with us if average isn't your thing.<br>
-                    Drop it, we'll build it!
-                </p>
-
-                <a href="mailto:hello@studionamma.com" class="say_hello_btn hover-link">
-                    <span>SAY HELLO</span>
-                    <span class="arrow">&rarr;</span>
-                </a>
-            </div>
-
-        </div>
-
-        <!-- 6 FOOTER VIDEO THUMBNAILS -->
-        <div class="cta_thumbs_grid">
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa249c8ad1d2624abf3d5_Footer-Service-designV2-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa1926bb2adbd4315d488_Zefir%20footerV2-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa2440a49684a10b9e055_FOOTER%20-%20BRANDINGV2-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa20fc54b7796aaa5edf6_SILVR-Video%201%20footersV3-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa0feb2681e0616dc3b3a_Footer-supercomics-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="cta_thumb_video">
-                <video autoplay loop muted playsinline>
-                    <source src="https://cdn.prod.website-files.com/679cb9cacf00799ba4b4c985%2F68dfa22f852959114b6c7b56_OSOL-COVER-footer-V2-transcode.mp4" type="video/mp4">
-                </video>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         FOOTER SECTION
-    ========================== -->
-
-    <footer class="footer-section">
-
-        <div class="footer-content">
-
-            <!-- LEFT COLUMN -->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
             <div class="footer-left">
-
-                <div class="footer-nav-list">
-                    <a href="../index.html" class="hover-link">HOME</a>
-                    <a href="../work/work.html" class="hover-link">WORK</a>
-                    <a href="#" class="hover-link">SERVICES</a>
-                    <a href="#" class="hover-link">STUDIO</a>
-                    <a href="#" class="hover-link active">PLANS</a>
-                    <a href="#" class="hover-link">APPROACH</a>
-                    <a href="../news/index.html" class="hover-link">NEWS</a>
-                </div>
-
-                <div class="footer-social-list">
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="hover-link">YOUTUBE</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover-link">LINKEDIN</a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover-link">INSTAGRAM</a>
-                    <a href="#" class="hover-link">LEGAL</a>
-                    <a href="#" class="hover-link">SITE EN FRANÇAIS</a>
-                </div>
-
+                <nav class="footer-nav">
+                    <a href="#">HOME</a>
+                    <a href="#">WORK</a>
+                    <a href="#">SERVICES</a>
+                    <a href="#">STUDIO</a>
+                    <a href="#">PLANS</a>
+                    <a href="#">APPROACH</a>
+                    <a href="#">NEWS</a>
+                </nav>
+                <nav class="footer-social">
+                    <a href="#">YOUTUBE</a>
+                    <a href="#">LINKEDIN</a>
+                    <a href="#">INSTAGRAM</a>
+                    <a href="#">LEGAL</a>
+                </nav>
             </div>
-
-            <!-- RIGHT COLUMN -->
             <div class="footer-right">
-
-                <div class="footer-info-block">
-                    <p>WE ARE A CREATIVE STUDIO BASED IN PARIS,<br>BARCELONA & LONDON.</p>
-                </div>
-
-                <div class="footer-info-block">
-                    <p>BIG PROJECT? CRAZY THOUGHT? OR JUST FEEL<br>LIKE CHATTING?</p>
-                </div>
-
-                <div class="footer-info-block">
-                    <p class="talk-heading">LET'S TALK!</p>
-                    <a href="mailto:hello@studionamma.com" class="footer-email-link hover-link">HELLO@STUDIONAMMA.COM</a>
-                </div>
-
-                <div class="footer-info-block copyright-block">
-                    <p>COPYRIGHT 2025<br>STUDIO NAMMA</p>
-                </div>
-
+                <p class="footer-about">WE ARE A CREATIVE STUDIO BASED IN PARIS, BARCELONA & LONDON.</p>
+                <p class="footer-chat">BIG PROJECT? CRAZY THOUGHT? OR JUST FEEL LIKE CHATTING?</p>
+                <a href="#" class="footer-talk">LET'S TALK!</a>
+                <a href="mailto:HELLO@STUDIONAMMA.COM" class="footer-email">HELLO@STUDIONAMMA.COM</a>
+                <p class="footer-copy">COPYRIGHT 2025<br>STUDIO NAMMA</p>
             </div>
-
         </div>
-
-        <!-- GROWING NAMMA LOGO -->
-        <div class="footer-logo-container">
-            <svg
-                id="namma-logo"
-                width="100%"
-                viewBox="0 0 1472 475"
-                preserveAspectRatio="none"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-
-                <path
-                    d="M0 0H121.01L186.954 393.455H189.673L173.357 200.465L166.559 0H256.297V475H135.286L71.3823 78.8269H69.3428L82.2596 274.535L89.7378 475H0V0Z"
-                    fill="currentColor" />
-
-                <path
-                    d="M268.04 475L322.426 0H450.914L508.02 475H416.243L408.085 363.555H365.935L357.777 475H268.04ZM367.975 279.292H405.366L387.69 72.0315H384.971L367.975 279.292Z"
-                    fill="currentColor" />
-
-                <path
-                    d="M519.832 475V0H659.198L678.233 200.465L689.79 383.941H691.83L702.707 200.465L721.742 0H861.108V475H771.37L774.769 262.983L783.607 78.8269H781.567L738.058 475H640.162L596.653 78.8269H593.934L602.772 262.983L606.851 475H519.832Z"
-                    fill="currentColor" />
-
-                <path
-                    d="M879.665 475V0H1019.03L1038.07 200.465L1049.62 383.941H1051.66L1062.54 200.465L1081.57 0H1220.94V475H1131.2L1134.6 262.983L1143.44 78.8269H1141.4L1097.89 475H999.995L956.486 78.8269H953.767L962.604 262.983L966.683 475H879.665Z"
-                    fill="currentColor" />
-
-                <path
-                    d="M1232.02 475L1286.41 0H1414.89L1472 475H1380.22L1372.06 363.555H1329.92L1321.76 475H1232.02ZM1331.95 279.292H1369.35L1351.67 72.0315H1348.95L1331.95 279.292Z"
-                    fill="currentColor" />
-
-            </svg>
-        </div>
-
     </footer>
 
-    <!-- =========================
-         FIXED BOTTOM BAR (CLOCK & LOCATION)
-    ========================== -->
+    
+    <section class="namma-banner" id="nammaBanner">
+        <div class="namma-text">NAMMA</div>
+    </section>
 
-    <div class="fixed-bottom-bar">
+
+    <div class="bottom-bar" id="bottomBar">
         <div class="bottom-bar-left">
-            <span>STUDIO NAMMA</span>
+            <span class="mono-tag">WE CRAFT BOLD DESIGN & CLEAN WEBFLOW.</span>
         </div>
-        <div class="bottom-bar-right">
-            <span>LOS ANGELES, CA</span>
-            <span id="live-time">12:00:00</span>
+        <div class="bottom-bar-right" id="cityClocks">
+        
         </div>
     </div>
 
-    <!-- =========================
-         FLOATING WHATSAPP BUTTON
-    ========================== -->
 
-    <a href="https://wa.me/yourphonenumber" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-        </svg>
-    </a>
-
-    <script src="script.js"></script>
     <script src="../navbar.js"></script>
-    <script src="../footer.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

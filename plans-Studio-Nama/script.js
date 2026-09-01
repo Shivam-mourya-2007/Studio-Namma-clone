@@ -3,6 +3,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
+    const topNav = document.getElementById('topNav');
+    let lastScroll = 0;
+
+    if (topNav) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 80) {
+                topNav.classList.add('scrolled');
+            } else {
+                topNav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+    }
+
+
     const observerOptions = {
         root: null,
         rootMargin: '0px 0px -60px 0px',
@@ -33,6 +49,50 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(word);
     });
 
+
+    const cities = [
+        { name: 'LOS ANGELES, CA', timezone: 'America/Los_Angeles' },
+        { name: 'BARCELONA, SPAIN', timezone: 'Europe/Madrid' },
+        { name: 'PARIS, FRANCE', timezone: 'Europe/Paris' },
+        { name: 'HONG KONG, CHINA', timezone: 'Asia/Hong_Kong' },
+    ];
+
+    const cityClocks = document.getElementById('cityClocks');
+    let currentCityIndex = 0;
+
+    function formatTime(timezone) {
+        const now = new Date();
+        return now.toLocaleTimeString('en-US', {
+            timeZone: timezone,
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+    }
+
+    function renderCityClock() {
+        const city = cities[currentCityIndex];
+        const time = formatTime(city.timezone);
+        cityClocks.innerHTML = `<span class="city-clock">${city.name}  ${time}</span>`;
+    }
+
+
+    function rotateCities() {
+        currentCityIndex = (currentCityIndex + 1) % cities.length;
+        renderCityClock();
+    }
+
+
+    renderCityClock();
+
+
+    setInterval(() => {
+        renderCityClock();
+    }, 1000);
+
+
+    setInterval(rotateCities, 5000);
 
 
     const typoWords = document.querySelectorAll('.typo-word');
